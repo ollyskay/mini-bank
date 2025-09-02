@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: minibank-db
+    restart: always
+    environment:
+      POSTGRES_DB: minibank
+      POSTGRES_USER: minibank
+      POSTGRES_PASSWORD: minibank
+#    ports:
+#      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: minibank-app
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/minibank
+      SPRING_DATASOURCE_USERNAME: minibank
+      SPRING_DATASOURCE_PASSWORD: minibank
+    ports:
+      - "8070:8070"
+
+volumes:
+  db_data:
