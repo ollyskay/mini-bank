@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  app:
+    image: https://github.com/ollyskay/mini-bank.git
+    container_name: minibank-app
+    restart: always
+    env_file: .env
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/minibank
+      SPRING_DATASOURCE_USERNAME: minibank
+      SPRING_DATASOURCE_PASSWORD: minibank
+      APP_JWT_SECRET: ${APP_JWT_SECRET}
+    ports:
+      - "80:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: minibank-db
+    restart: always
+    environment:
+      POSTGRES_DB: minibank
+      POSTGRES_USER: minibank
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    # no ports → DB stays private inside Docker
+
+volumes:
+  db_data:
