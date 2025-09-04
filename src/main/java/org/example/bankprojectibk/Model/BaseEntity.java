@@ -8,8 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
-@Entity
-@Table(name = "sample_entity")
+@MappedSuperclass
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,9 +17,6 @@ public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, length = 100)
-    private String name;
 
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
