@@ -1,4 +1,4 @@
-package org.example.bankprojectibk.config;
+package org.example.bankprojectibk.Config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

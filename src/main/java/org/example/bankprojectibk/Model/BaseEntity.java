@@ -5,28 +5,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
+import java.time.OffsetDateTime;
 
 @MappedSuperclass
-@Getter
-@Setter
-@NoArgsConstructor
-public class BaseEntity {
+@Getter @Setter
+public abstract class BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @CreationTimestamp
-    @Column(updatable = false, nullable = false)
-    private Instant createdAt;
+    @Column(nullable = false, updatable = false)
+    private OffsetDateTime createdAt;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-}
+    @UpdateTimestamp
+    private OffsetDateTime updatedAt;}
