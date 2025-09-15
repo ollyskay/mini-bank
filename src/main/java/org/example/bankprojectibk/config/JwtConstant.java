@@ -1,4 +1,4 @@
-package org.example.bankprojectibk.config;
+package org.example.bankprojectibk.Config;
 
 public class JwtConstant {
     public static final String SECRET_KEY = "kjdbvkjhbdkhjabdhvahbiudhiuvhiurhghwqbjdbadvbouasbdfbvajdbjvbouabdvoujabdfvjabdsvjaobdcvaola";

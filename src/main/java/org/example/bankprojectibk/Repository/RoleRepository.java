@@ -1,4 +1,7 @@
-package org.example.bankprojectibk.Repository;
-
-public class RoleRepository {
-}
+//package org.example.bankprojectibk.Repository;
+//
+//
+//public interface RoleRepository extends JpaRepository <Role, Long> {
+//
+//    Optional<Role> findByName(String name);}
+//

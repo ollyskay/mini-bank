@@ -1,4 +1,4 @@
-package org.example.bankprojectibk.config;
+package org.example.bankprojectibk.Config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import lombok.RequiredArgsConstructor;
+import org.example.bankprojectibk.Config.JwtConstant;
+import org.example.bankprojectibk.Config.JwtUtil;
 import org.example.bankprojectibk.Model.User;
 import org.example.bankprojectibk.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
